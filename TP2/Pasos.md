@@ -1,19 +1,34 @@
 Ing. de Soft. III
 
-se creo el archivo readme
+1)Instalacion del docker
+(imagen)
 
-Trabajo Practico 1
+3)Imagen obtenida y version
+(imagen)
 
-4)
-Pull Request:
-	Un Pull Request es una peticion que el propietario de un fork de un repositorio hace al propietario del 
-	repositorio original para que este ultimo incorpore los commits que estan en el fork.
-5)
-Mensaje colisionado con p4merge
+4)Ejecucion de contenedores
+(imagen)
 
+-No se obtuvo nada devido a que no se especifico que obtener en el comando
 
-Explicar las versiones LOCAL, BASE y REMOTE.
+(imagen)
 
-Local: Archivos de la rama actual en el repositorio local de la maquina que se esta utilizando
-Remote: Archivos de la rama actual en el repositorio remoto que se esta intentando fusionar en su Local
-Base: Los ancestros comunes de Local y Base
+5)Ejecucion modo interactivo
+
+(imagen)
+
+6)Borrando contenedores
+
+(imagen)
+
+7) Montando volumenes
+
+(imagen)
+
+8)Publicando puertos
+
+(imagen)
+
+9)Base de datos
+
+(imagen)
