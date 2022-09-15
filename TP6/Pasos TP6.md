@@ -16,4 +16,3 @@ Describir las instrucciones
     
     ENTRYPOINT: Este comando se ejecuta cuando se quiere ejecutar un ejecutable en el contenedor en su arranque. Los ejemplos tipo de su uso, son cuando se quiere levantar un servidor web, una base de datos, etc
 
-    
