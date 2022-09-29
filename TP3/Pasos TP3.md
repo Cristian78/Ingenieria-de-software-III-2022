@@ -2,7 +2,23 @@ Ing. de Soft. III
 TP3
 
 1)
-(imagen)
+Creacion de red en docker
+
+<img src= "Imagenes TP3/1.1.jpg">
+
+Instanciar una base de datos Redis conectada a esa Red.
+
+<img src= "Imagenes TP3/1.2.jpg">
+
+Levantar una aplicacion web, que utilice esta base de datos
+
+<img src= "Imagenes TP3/1.3.jpg">
+
+Abrir un navegador y acceder a la URL: http://localhost:5000/
+
+<img src= "Imagenes TP3/1.4.jpg">
+
+<img src= "Imagenes TP3/1.5.jpg">
 
 2)
 Explicar cómo funciona el sistema:
