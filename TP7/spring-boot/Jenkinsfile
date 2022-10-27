@@ -1,0 +1,301 @@
+//SCRIPT
+
+pipeline {
+    agent any
+
+    tools {
+        // Install the Maven version configured as "M3" and add it to the path.
+        maven "M3"
+    }
+
+    stages {
+        stage('Build') {
+            steps {
+                // Get some code from a GitHub repository
+                git 'https://github.com/Cristian78/Ing3-sping-boot'
+
+                // Run Maven on a Unix agent.
+                sh "mvn -Dmaven.test.failure.ignore=true clean package"
+
+                // To run Maven on a Windows agent, use
+                // bat "mvn -Dmaven.test.failure.ignore=true clean package"
+            }
+
+            post {
+                // If Maven was able to run the tests, even if some of the test
+                // failed, record the test results and archive the jar file.
+                success {
+                    junit '**/target/surefire-reports/TEST-*.xml'
+                    archiveArtifacts 'target/*.jar'
+                }
+            }
+        }
+    }
+}
+
+
+
+//CONSOLE OUTPUT
+
+Started by user cristian k
+[Pipeline] Start of Pipeline
+[Pipeline] node
+Running on Jenkins in /var/jenkins_home/workspace/spring-boot
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Declarative: Tool Install)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] stage
+[Pipeline] { (Build)
+[Pipeline] tool
+[Pipeline] envVarsForTool
+[Pipeline] withEnv
+[Pipeline] {
+[Pipeline] git
+The recommended git tool is: NONE
+No credentials specified
+ > git rev-parse --resolve-git-dir /var/jenkins_home/workspace/spring-boot/.git # timeout=10
+Fetching changes from the remote Git repository
+ > git config remote.origin.url https://github.com/Cristian78/Ing3-sping-boot # timeout=10
+Fetching upstream changes from https://github.com/Cristian78/Ing3-sping-boot
+ > git --version # timeout=10
+ > git --version # 'git version 2.30.2'
+ > git fetch --tags --force --progress -- https://github.com/Cristian78/Ing3-sping-boot +refs/heads/*:refs/remotes/origin/* # timeout=10
+ > git rev-parse refs/remotes/origin/master^{commit} # timeout=10
+Checking out Revision dac75c2b7e22c835bad29dff4b26827c61136599 (refs/remotes/origin/master)
+ > git config core.sparsecheckout # timeout=10
+ > git checkout -f dac75c2b7e22c835bad29dff4b26827c61136599 # timeout=10
+ > git branch -a -v --no-abbrev # timeout=10
+ > git branch -D master # timeout=10
+ > git checkout -b master dac75c2b7e22c835bad29dff4b26827c61136599 # timeout=10
+Commit message: "Update pom.xml"
+First time build. Skipping changelog.
+[Pipeline] sh
++ mvn -Dmaven.test.failure.ignore=true clean package
+[INFO] Scanning for projects...
+[INFO] 
+[INFO] --------< org.springframework.boot:spring-boot-sample-actuator >--------
+[INFO] Building Spring Boot Actuator Sample 2.0.2
+[INFO] --------------------------------[ jar ]---------------------------------
+Downloading from central: https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.pom
+Progress (1): 2.7/18 kB
+Progress (1): 5.5/18 kB
+Progress (1): 8.2/18 kB
+Progress (1): 11/18 kB 
+Progress (1): 14/18 kB
+Progress (1): 16/18 kB
+Progress (1): 18 kB   
+                   
+Downloaded from central: https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.pom (18 kB at 6.1 kB/s)
+Downloading from central: https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar
+Progress (1): 2.7/565 kB
+Progress (1): 5.5/565 kB
+Progress (1): 8.2/565 kB
+Progress (1): 11/565 kB 
+Progress (1): 14/565 kB
+Progress (1): 16/565 kB
+Progress (1): 20/565 kB
+Progress (1): 24/565 kB
+Progress (1): 28/565 kB
+Progress (1): 32/565 kB
+Progress (1): 36/565 kB
+Progress (1): 40/565 kB
+Progress (1): 45/565 kB
+Progress (1): 49/565 kB
+Progress (1): 53/565 kB
+Progress (1): 57/565 kB
+Progress (1): 61/565 kB
+Progress (1): 65/565 kB
+Progress (1): 69/565 kB
+Progress (1): 73/565 kB
+Progress (1): 77/565 kB
+Progress (1): 81/565 kB
+Progress (1): 85/565 kB
+Progress (1): 90/565 kB
+Progress (1): 94/565 kB
+Progress (1): 98/565 kB
+Progress (1): 102/565 kB
+Progress (1): 106/565 kB
+Progress (1): 110/565 kB
+Progress (1): 114/565 kB
+Progress (1): 118/565 kB
+Progress (1): 122/565 kB
+Progress (1): 126/565 kB
+Progress (1): 131/565 kB
+Progress (1): 135/565 kB
+Progress (1): 139/565 kB
+Progress (1): 143/565 kB
+Progress (1): 147/565 kB
+Progress (1): 151/565 kB
+Progress (1): 155/565 kB
+Progress (1): 159/565 kB
+Progress (1): 163/565 kB
+Progress (1): 167/565 kB
+Progress (1): 171/565 kB
+Progress (1): 176/565 kB
+Progress (1): 180/565 kB
+Progress (1): 184/565 kB
+Progress (1): 188/565 kB
+Progress (1): 192/565 kB
+Progress (1): 196/565 kB
+Progress (1): 200/565 kB
+Progress (1): 204/565 kB
+Progress (1): 208/565 kB
+Progress (1): 212/565 kB
+Progress (1): 217/565 kB
+Progress (1): 221/565 kB
+Progress (1): 225/565 kB
+Progress (1): 229/565 kB
+Progress (1): 233/565 kB
+Progress (1): 237/565 kB
+Progress (1): 241/565 kB
+Progress (1): 245/565 kB
+Progress (1): 249/565 kB
+Progress (1): 253/565 kB
+Progress (1): 258/565 kB
+Progress (1): 262/565 kB
+Progress (1): 266/565 kB
+Progress (1): 270/565 kB
+Progress (1): 274/565 kB
+Progress (1): 278/565 kB
+Progress (1): 282/565 kB
+Progress (1): 286/565 kB
+Progress (1): 290/565 kB
+Progress (1): 294/565 kB
+Progress (1): 298/565 kB
+Progress (1): 303/565 kB
+Progress (1): 307/565 kB
+Progress (1): 311/565 kB
+Progress (1): 315/565 kB
+Progress (1): 319/565 kB
+Progress (1): 323/565 kB
+Progress (1): 327/565 kB
+Progress (1): 331/565 kB
+Progress (1): 335/565 kB
+Progress (1): 339/565 kB
+Progress (1): 344/565 kB
+Progress (1): 348/565 kB
+Progress (1): 352/565 kB
+Progress (1): 356/565 kB
+Progress (1): 360/565 kB
+Progress (1): 364/565 kB
+Progress (1): 368/565 kB
+Progress (1): 372/565 kB
+Progress (1): 376/565 kB
+Progress (1): 380/565 kB
+Progress (1): 384/565 kB
+Progress (1): 389/565 kB
+Progress (1): 393/565 kB
+Progress (1): 397/565 kB
+Progress (1): 401/565 kB
+Progress (1): 405/565 kB
+Progress (1): 409/565 kB
+Progress (1): 413/565 kB
+Progress (1): 417/565 kB
+Progress (1): 421/565 kB
+Progress (1): 425/565 kB
+Progress (1): 430/565 kB
+Progress (1): 434/565 kB
+Progress (1): 438/565 kB
+Progress (1): 442/565 kB
+Progress (1): 446/565 kB
+Progress (1): 450/565 kB
+Progress (1): 454/565 kB
+Progress (1): 458/565 kB
+Progress (1): 462/565 kB
+Progress (1): 466/565 kB
+Progress (1): 470/565 kB
+Progress (1): 475/565 kB
+Progress (1): 479/565 kB
+Progress (1): 483/565 kB
+Progress (1): 487/565 kB
+Progress (1): 491/565 kB
+Progress (1): 495/565 kB
+Progress (1): 499/565 kB
+Progress (1): 503/565 kB
+Progress (1): 507/565 kB
+Progress (1): 511/565 kB
+Progress (1): 516/565 kB
+Progress (1): 520/565 kB
+Progress (1): 524/565 kB
+Progress (1): 528/565 kB
+Progress (1): 532/565 kB
+Progress (1): 536/565 kB
+Progress (1): 540/565 kB
+Progress (1): 544/565 kB
+Progress (1): 548/565 kB
+Progress (1): 552/565 kB
+Progress (1): 557/565 kB
+Progress (1): 561/565 kB
+Progress (1): 565/565 kB
+Progress (1): 565 kB    
+                    
+Downloaded from central: https://repo.maven.apache.org/maven2/org/mockito/mockito-core/2.23.4/mockito-core-2.23.4.jar (565 kB at 121 kB/s)
+[INFO] 
+[INFO] --- maven-clean-plugin:3.0.0:clean (default-clean) @ spring-boot-sample-actuator ---
+[INFO] Deleting /var/jenkins_home/workspace/spring-boot/target
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:resources (default-resources) @ spring-boot-sample-actuator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:compile (default-compile) @ spring-boot-sample-actuator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 6 source files to /var/jenkins_home/workspace/spring-boot/target/classes
+[INFO] 
+[INFO] --- maven-resources-plugin:3.0.1:testResources (default-testResources) @ spring-boot-sample-actuator ---
+[INFO] Using 'UTF-8' encoding to copy filtered resources.
+[INFO] Copying 1 resource
+[INFO] 
+[INFO] --- maven-compiler-plugin:3.7.0:testCompile (default-testCompile) @ spring-boot-sample-actuator ---
+[INFO] Changes detected - recompiling the module!
+[INFO] Compiling 3 source files to /var/jenkins_home/workspace/spring-boot/target/test-classes
+[INFO] 
+[INFO] --- maven-surefire-plugin:2.9:test (default-test) @ spring-boot-sample-actuator ---
+[INFO] Surefire report directory: /var/jenkins_home/workspace/spring-boot/target/surefire-reports
+
+-------------------------------------------------------
+ T E S T S
+-------------------------------------------------------
+Running sample.actuator.ExampleInfoContributorTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 3.92 sec
+Running sample.actuator.HelloWorldServiceTest
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0 sec
+
+Results :
+
+Tests run: 2, Failures: 0, Errors: 0, Skipped: 0
+
+[INFO] 
+[INFO] --- maven-jar-plugin:3.0.2:jar (default-jar) @ spring-boot-sample-actuator ---
+[INFO] Building jar: /var/jenkins_home/workspace/spring-boot/target/spring-boot-sample-actuator-2.0.2.jar
+[INFO] 
+[INFO] --- spring-boot-maven-plugin:2.0.2.RELEASE:repackage (default) @ spring-boot-sample-actuator ---
+[INFO] ------------------------------------------------------------------------
+[INFO] BUILD SUCCESS
+[INFO] ------------------------------------------------------------------------
+[INFO] Total time:  01:00 min
+[INFO] Finished at: 2022-11-09T11:38:24Z
+[INFO] ------------------------------------------------------------------------
+Post stage
+[Pipeline] junit
+Recording test results
+[Checks API] No suitable checks publisher found.
+[Pipeline] archiveArtifacts
+Archiving artifacts
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // stage
+[Pipeline] }
+[Pipeline] // withEnv
+[Pipeline] }
+[Pipeline] // node
+[Pipeline] End of Pipeline
+Finished: SUCCESS

@@ -42,3 +42,28 @@ Y si lo levanto nuevamente con docker run -d --net mybridge --name db redis:alpi
 (Se eliminaron los elementos creados)
 
 
+3)
+Se creo el archivo docker-compose.yml y se ejecuto
+
+<img src= "Imagenes TP3/3.1.jpg">
+
+<img src= "Imagenes TP3/3.2.jpg">
+
+Al realizar la ejecucion, el docker compose lo que hizo fue realizar todo el ejercicio del punto 1 pero de forma automatica con solo crear un script en el archivo .yml
+
+
+4)
+<img src= "Imagenes TP3/4.1.jpg">
+
+<img src= "Imagenes TP3/4.2.jpg">
+
+Explicar como está configurado el sistema, puertos, volumenes componenetes involucrados, utilizar el Docker compose como guía.
+
+En la configuracion del sistema tiene 5 servicios que son:
+	1- vote: Es una aplicacion que nos permite emitir el voto
+	2- result: Aplicacion que nos permite visualizar el resultado de la votacion
+	3- worker: Es el que recibe los votos y los manda a la base de datos
+	4- redis: Una cola que recolecta los votos
+	5- db: Base de datos que almacena los votos
+
+Tiene los puertos al host 5000:80, 5001:80, 5858:5858
