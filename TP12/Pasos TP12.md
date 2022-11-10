@@ -35,3 +35,4 @@ Una vez terminado, se desplegara la aplicacion
 Ahora podremos acceder a la aplicacion desde https://vast-eyrie-43305.herokuapp.com/
 
 <img src="Imagenes TP12/2.4.jpg">
+
