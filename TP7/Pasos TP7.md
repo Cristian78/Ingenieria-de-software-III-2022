@@ -47,3 +47,8 @@ Siguiendo el ejercicio 5 haremos los mismos pasos pero con la diferencia en el q
 <img src="Imagenes TP7/6.1.jpg">
 
 <img src="Imagenes TP7/6.2.jpg">
+
+
+Ejercicio 7
+
+//adjunto jenkinsfile_2
